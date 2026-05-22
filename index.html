@@ -7,6 +7,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="description" content="Ariana — Experience Designer. Human-centered product design, UX strategy, and interaction design.">
+	<style>
+		.weather-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:1.5rem;max-width:300px;box-shadow:0 24px 50px rgba(2,6,23,0.25);}
+		.weather-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+		.weather-emoji{font-size:2.3rem;line-height:1;display:block;}
+		.weather-summary{color:#2f3945;font-size:0.97rem;margin-top:0.15rem;display:block;max-width:220px;}
+		.weather-temp{font-size:3rem;font-weight:800;letter-spacing:-0.04em;line-height:1;}
+		.weather-temp sup{font-size:1rem;vertical-align:text-top;}
+		#weather-location{color:#2f3945;font-size:0.96rem;margin:1rem 0 0;}
+		.weather-card p:not(#weather-location){margin:1rem 0 0;color:#cbd5e1;}
+		.weather-note{color:#94a3b8;font-size:0.78rem;margin-top:0.9rem;}
+		@media (max-width:900px){.weather-card{max-width:none;}}
+	</style>
 </head>
 <body>
 	<header class="site-header">
@@ -24,7 +36,18 @@
 				<div class="hero-copy">
 					<h1>Hi — I'm Ariana</h1>
 					<p class="lede">Experience designer crafting human-centered products and delightful interactions.</p>
-					  <p><a class="btn" href="contact.html">Let's work together</a></p>
+					<p><a class="btn" href="contact.html">Let's work together</a></p>
+					<div class="weather-card" id="weather-card">
+						<div class="weather-top">
+							<div>
+								<span class="weather-emoji" id="weather-emoji">☀️</span>
+								<span class="weather-summary" id="weather-summary">Checking the weather...</span>
+							</div>
+							<div class="weather-temp"><span id="weather-temp">--</span><sup>°F</sup></div>
+						</div>
+						<p id="weather-location">Allow location access to show your local forecast.</p>
+						<p class="weather-note">Powered by Open-Meteo, updated from your browser.</p>
+					</div>
 				</div>
 				<div class="hero-art" aria-hidden="true">
 					<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" class="blob">
@@ -86,6 +109,78 @@
 	<footer class="site-footer">
 		<div class="container">© <span id="year">2026</span> Ariana — Experience Designer</div>
 	</footer>
+	<script>
+		(function(){
+			const status = document.getElementById('weather-summary');
+			const emoji = document.getElementById('weather-emoji');
+			const temp = document.getElementById('weather-temp');
+			const locationLine = document.getElementById('weather-location');
 
+			function updateWeather(temperature, code) {
+				if(temp) temp.textContent = Math.round(temperature);
+				if(emoji) emoji.textContent = getEmoji(code);
+				if(status) status.textContent = getLabel(code);
+			}
+
+			function setMessage(message) {
+				if(status) status.textContent = message;
+			}
+
+			function setLocation(message) {
+				if(locationLine) locationLine.textContent = message;
+			}
+
+			function getEmoji(code) {
+				if(code === 0) return '☀️';
+				if(code >= 1 && code <= 3) return '⛅';
+				if(code >= 45 && code <= 48) return '🌫️';
+				if((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) return '🌧️';
+				if(code >= 71 && code <= 77) return '❄️';
+				if(code >= 95) return '⛈️';
+				return '🌤️';
+			}
+
+			function getLabel(code) {
+				if(code === 0) return 'Clear skies';
+				if(code >= 1 && code <= 3) return 'Partly cloudy';
+				if(code >= 45 && code <= 48) return 'Foggy';
+				if(code >= 51 && code <= 67) return 'Showers';
+				if(code >= 71 && code <= 77) return 'Snowy';
+				if(code >= 80 && code <= 82) return 'Rain showers';
+				if(code >= 95) return 'Thunderstorms';
+				return 'Current conditions';
+			}
+
+			if(!navigator.geolocation) {
+				setMessage('Geolocation not supported');
+				setLocation('Your browser does not support location services.');
+				return;
+			}
+
+			navigator.geolocation.getCurrentPosition(async function(position) {
+				const lat = position.coords.latitude.toFixed(4);
+				const lon = position.coords.longitude.toFixed(4);
+				setLocation(`Lat ${lat}, Lon ${lon}`);
+				try {
+					const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit`;
+					const response = await fetch(url);
+					const data = await response.json();
+					if(data && data.current_weather) {
+						updateWeather(data.current_weather.temperature, data.current_weather.weathercode);
+					} else {
+						setMessage('Weather unavailable');
+					}
+				} catch (error) {
+					setMessage('Unable to load weather');
+					setLocation('Try reloading or allowing location.');
+					console.error(error);
+				}
+			}, function(error) {
+				setMessage('Location access denied');
+				setLocation("Don't forget to enable location to see your weather.");
+				console.error(error);
+			}, {timeout:10000});
+		})();
+	</script>
 </body>
 </html>
