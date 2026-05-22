@@ -43,14 +43,15 @@ body::before{
 .hero-art{display:flex;justify-content:flex-end;}
 .blob{width:100%;height:auto;max-width:420px;}
 
-.weather-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:1.75rem;max-width:440px;box-shadow:0 30px 60px rgba(29,27,25,0.06);margin-top:1.75rem}
+.weather-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:1.5rem;max-width:300px;box-shadow:0 24px 50px rgba(2,6,23,0.25);}
 .weather-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
-.weather-emoji{font-size:2.6rem;line-height:1;display:block;}
-.weather-summary{color:var(--muted);font-size:0.98rem;margin-top:0.2rem;display:block;max-width:240px;}
-.weather-temp{font-size:3.2rem;font-weight:800;letter-spacing:-0.03em;line-height:1;}
-.weather-temp sup{font-size:1.1rem;vertical-align:text-top;}
-.weather-card p{margin:1rem 0 0;color:var(--muted);font-size:0.96rem;}
-.weather-note{color:#8a8580;font-size:0.9rem;margin-top:0.9rem;}
+.weather-emoji{font-size:2.3rem;line-height:1;display:block;}
+.weather-summary{color:#2f3945;font-size:0.97rem;margin-top:0.15rem;display:block;max-width:220px;}
+.weather-temp{font-size:3rem;font-weight:800;letter-spacing:-0.04em;line-height:1;}
+.weather-temp sup{font-size:1rem;vertical-align:text-top;}
+#weather-location{color:#2f3945;font-size:0.96rem;margin:1rem 0 0;}
+.weather-card p:not(#weather-location){margin:1rem 0 0;color:#cbd5e1;}
+.weather-note{color:#94a3b8;font-size:0.78rem;margin-top:0.9rem;}
 
 .about, .work, .contact{padding:4rem 0}
 .section-title{font-size:0.95rem;text-transform:uppercase;letter-spacing:0.26em;color:var(--muted);margin:0 0 1rem;}
