@@ -1,0 +1,79 @@
+/* WCAG AA Accessibility Updates */
+/* Improved color contrast ratios for compliance */
+
+:root {
+  --muted: #4a4540;
+  --accent: #b85226;
+}
+
+.lede {
+  color: #333333;
+}
+
+.about-list li {
+  color: #333333;
+}
+
+.about-panel p {
+  color: #333333;
+}
+
+.weather-temp {
+  color: #1a1a1a;
+}
+
+/* Tools Grid Styling */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tool-item {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.tool-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+  display: block;
+}
+
+.tool-desc {
+  font-size: 0.85rem;
+  color: #333333;
+  margin: 0;
+.about-tools {
+  background: linear-gradient(135deg, rgba(184, 82, 38, 0.05), rgba(61, 109, 58, 0.05));
+  border: 1px solid rgba(184, 82, 38, 0.2);
+}
+
+.about-tools h2 {
+  color: var(--accent);
+}
+
+.tool-item:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(184, 82, 38, 0.1);
+}
+
+.tool-item:focus-within {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

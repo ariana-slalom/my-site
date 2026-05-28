@@ -6,15 +6,15 @@
 	<title>Ariana — Experience Designer</title>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<meta name="description" content="Ariana — Experience Designer. Human-centered product design, UX strategy, and interaction design.">
+	<meta name="description" content="Ariana de Ryss is an experience designer, strategist, and product manager creating human-centered solutions across complex organizations.">
 </head>
 <body>
 	<header class="site-header">
 		<nav class="nav container">
-			<div class="brand">Ariana</div>
+			<a href="index.html" class="brand">de Ryss Design</a>
 			<ul class="nav-links">
-				<li><a href="about.html">About</a></li>
 				<li><a href="work/index.html">Work</a></li>
+				<li><a href="about.html">About</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
@@ -22,9 +22,12 @@
 		<section class="hero">
 			<div class="container hero-inner">
 				<div class="hero-copy">
-					<h1>Hi — I'm Ariana</h1>
-					<p class="lede">Experience designer crafting human-centered products and delightful interactions.</p>
+					<h1>Hey — I'm Ariana</h1>
+				<p class="role">Experience Strategy Leader</p>
+				<p class="lede">I help complex organizations turn ambiguity into aligned strategy, guiding teams through research, facilitation, and human-centered design to deliver measurable impact.</p>
 					<p><a class="btn" href="contact.html">Let's work together</a></p>
+				</div>
+				<div class="hero-art" aria-hidden="true">
 					<div class="weather-card" id="weather-card">
 						<div class="weather-top">
 							<div>
@@ -36,16 +39,74 @@
 						<p id="weather-location">Allow location access to show your local forecast.</p>
 						<p class="weather-note">Powered by Open-Meteo, updated from your browser.</p>
 					</div>
-				</div>
-				<div class="hero-art" aria-hidden="true">
 					<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" class="blob">
 						<defs>
-							<linearGradient id="g" x1="0" x2="1">
-								<stop offset="0" stop-color="#7b61ff" />
-								<stop offset="1" stop-color="#3dd1c0" />
-							</linearGradient>
+							<style>
+								@keyframes drift {
+									0%, 100% { transform: translate(0, 0) rotate(0deg); }
+									33% { transform: translate(8px, -12px) rotate(3deg); }
+									66% { transform: translate(-6px, 8px) rotate(-2deg); }
+								}
+								@keyframes float {
+									0%, 100% { transform: translateY(0px); }
+									50% { transform: translateY(-15px); }
+								}
+								@keyframes grow {
+									0%, 100% { r: 3px; }
+									50% { r: 5px; }
+								}
+								@keyframes pulse {
+									0%, 100% { opacity: 0.6; }
+									50% { opacity: 1; }
+								}
+								.organic { animation: drift 8s ease-in-out infinite; }
+								.connector { animation: float 6s ease-in-out infinite; }
+								.accent { animation: pulse 4s ease-in-out infinite; }
+								.dot { animation: grow 3s ease-in-out infinite; }
+							</style>
 						</defs>
-						<path fill="url(#g)" d="M421.5,344.5Q390,439,306,475.5Q222,512,141.5,463.5Q61,415,53,328Q45,241,110,174.5Q175,108,262,86.5Q349,65,416.5,129Q484,193,445,266Q406,339,421.5,344.5Z"/>
+						
+						<!-- Background organic blob (light green) -->
+						<path class="organic" d="M 300 100 Q 450 150 480 300 Q 450 450 300 480 Q 150 450 120 300 Q 150 150 300 100 Z" fill="#e8f5e9" opacity="0.4" />
+						
+						<!-- Poppy flower circle (deep orange) -->
+						<circle class="connector" cx="420" cy="280" r="45" fill="#d35d2f" opacity="0.85" />
+						
+						<!-- Poppy petals with variation -->
+						<ellipse class="organic" cx="420" cy="230" rx="18" ry="35" fill="#e64a19" opacity="0.9" transform="rotate(-25 420 230)" />
+						<ellipse class="organic" cx="455" cy="245" rx="18" ry="35" fill="#e64a19" opacity="0.9" transform="rotate(35 455 245)" />
+						<ellipse class="organic" cx="460" cy="300" rx="18" ry="35" fill="#e64a19" opacity="0.9" transform="rotate(85 460 300)" />
+						<ellipse class="organic" cx="430" cy="340" rx="18" ry="35" fill="#d35d2f" opacity="0.85" transform="rotate(130 430 340)" />
+						<ellipse class="organic" cx="375" cy="330" rx="18" ry="35" fill="#e64a19" opacity="0.9" transform="rotate(180 375 330)" />
+						<ellipse class="organic" cx="385" cy="260" rx="18" ry="35" fill="#d35d2f" opacity="0.85" transform="rotate(-100 385 260)" />
+						
+						<!-- Seed pod (deep purple) -->
+						<ellipse cx="420" cy="285" rx="12" ry="18" fill="#2d1b3d" opacity="0.8" />
+						
+						<!-- Green stem -->
+						<line x1="420" y1="325" x2="420" y2="420" stroke="#3d6d3a" stroke-width="3" stroke-linecap="round" />
+						<path d="M 415 360 Q 405 370 410 385" stroke="#3d6d3a" stroke-width="2" fill="none" stroke-linecap="round" />
+						<path d="M 425 370 Q 435 375 430 395" stroke="#3d6d3a" stroke-width="2" fill="none" stroke-linecap="round" />
+						
+						<!-- Leaves on stem -->
+						<ellipse cx="405" cy="360" rx="8" ry="14" fill="#4a7c4e" opacity="0.7" transform="rotate(-35 405 360)" />
+						<ellipse cx="435" cy="375" rx="8" ry="14" fill="#4a7c4e" opacity="0.7" transform="rotate(35 435 375)" />
+						
+						<!-- Geometric connecting lines (representing networks/connections) -->
+						<line x1="300" y1="300" x2="420" y2="280" stroke="#3d6d3a" stroke-width="1" opacity="0.3" />
+						<line x1="420" y1="280" x2="500" y2="380" stroke="#3d6d3a" stroke-width="1" opacity="0.3" />
+						<line x1="200" y1="250" x2="300" y2="300" stroke="#3d6d3a" stroke-width="1" opacity="0.3" />
+						
+						<!-- Accent dots (nodes) -->
+						<circle class="dot" cx="300" cy="300" r="3" fill="#3d6d3a" opacity="0.5" />
+						<circle class="dot" cx="200" cy="250" r="3" fill="#3d6d3a" opacity="0.5" />
+						<circle class="dot" cx="500" cy="380" r="3" fill="#3d6d3a" opacity="0.5" />
+						
+						<!-- Geometric rectangle element (modern, Scandinavian) -->
+						<rect class="accent" x="80" y="420" width="60" height="12" fill="#3d6d3a" opacity="0.3" rx="2" />
+						
+						<!-- Typography/text element (subtle) -->
+						<text x="300" y="550" font-family="Inter, sans-serif" font-size="14" font-weight="300" text-anchor="middle" fill="#3d6d3a" opacity="0.4" letter-spacing="2">CONNECTED</text>
 					</svg>
 				</div>
 			</div>
@@ -55,11 +116,11 @@
 	<main>
 		<section id="about" class="about container">
 			<h2>About</h2>
-			<p>I'm Ariana, an experience designer focused on research-driven product design, interaction design, and crafting clear user journeys. I blend empathy, strategic thinking, and visual craft to create meaningful digital experiences.</p>
+			<p>I'm Ariana de Ryss, an experience designer, strategist, and product manager focused on building meaningful, human-centered solutions. I bring together UX, research, product design, and systems thinking to shape holistic customer journeys and support teams through clear strategy and execution.</p>
 			<ul class="about-list">
-				<li><strong>Focus:</strong> UX Strategy · Interaction Design · Prototyping</li>
-				<li><strong>Tools:</strong> Figma · Sketch · Miro · Prototyping</li>
-				<li><strong>Approach:</strong> Human-centered, iterative, measurable</li>
+				<li><strong>Focus:</strong> Experience Strategy · UX Design · Product Management</li>
+				<li><strong>Industries:</strong> Healthcare · Finance · Telecom · Food & Beverage · Public Sector · Technology</li>
+				<li><strong>Approach:</strong> Research-led, collaborative, and grounded in measurable impact</li>
 			</ul>
 		</section>
 
@@ -69,20 +130,20 @@
 				<div class="grid">
 					<article class="card">
 						<div class="card-visual" style="background: linear-gradient(135deg,#ffd166,#ff8fab);"></div>
-						<h3>Product Redesign</h3>
-						<p>Improved onboarding flows and conversion through user research and iterative testing.</p>
+						<h3>Experience Strategy</h3>
+						<p>Defined product direction, roadmaps, and customer journeys that balance user needs with business priorities.</p>
 					</article>
 
 					<article class="card">
-						<div class="card-visual" style="background: linear-gradient(135deg,#7b61ff,#3dd1c0);"></div>
-						<h3>Interaction System</h3>
-						<p>Design system and component library that reduced dev time and improved consistency.</p>
-					</article>
+					<div class="card-visual" style="background: linear-gradient(135deg,#4a7c4e,#3d6d3a);"></div>
+					<h3>Systems Design</h3>
+					<p>Built service and product systems that improve operational clarity, consistency, and cross-functional alignment.</p>
+				</article>
 
-					<article class="card">
-						<div class="card-visual" style="background: linear-gradient(135deg,#70e1f5,#ffd1ff);"></div>
-						<h3>Research-Led UX</h3>
-						<p>User research program that surfaced new opportunities and guided roadmap decisions.</p>
+				<article class="card">
+					<div class="card-visual" style="background: linear-gradient(135deg,#2d1b3d,#553d5c);"></div>
+						<h3>Research & Facilitation</h3>
+						<p>Led workshops, interviews, and synthesis that help leaders align on opportunity, direction, and execution.</p>
 					</article>
 				</div>
 			</div>
@@ -90,7 +151,7 @@
 
 		<section id="contact" class="contact container">
 			<h2>Contact</h2>
-			<p>I'm available for freelance and collaborative projects. Reach me at <a href="mailto:hello@ariana.design">hello@ariana.design</a> or connect on your preferred network.</p>
+		<p>I'm a full-time Experience Strategy Leader at Slalom Consulting in Denver. Reach me at <a href="mailto:ariana@deryssdesign.com">ariana@deryssdesign.com</a>.</p>
 		</section>
 	</main>
 
